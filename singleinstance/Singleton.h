@@ -6,8 +6,8 @@
  * 作者：GuoJun  完成日期：2022/05/13
  */
 
-//单例模板类
-//使用一个代理类 token，子类构造函数需要传递token类才能构造
+// 单例模板类
+// 使用一个代理类 token，子类构造函数需要传递token类才能构造
 // example:
 // class DerivedSingle : public Singleton<DerivedSingle>
 // { DerivedSingle(token){}

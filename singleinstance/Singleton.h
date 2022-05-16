@@ -5,7 +5,6 @@
  * 摘    要：单例模板类
  * 作者：GuoJun  完成日期：2022/05/13
  */
-#include <type_traits>
 
 //单例模板类
 //使用一个代理类 token，子类构造函数需要传递token类才能构造
@@ -17,18 +16,22 @@ template <typename T>
 class Singleton
 {
 public:
-    static T &get_instance() noexcept(std::is_nothrow_constructible<T>::value)
-    {
-        static T instance{token()};
-        return instance;
-    }
-    virtual ~Singleton() = default;
+    static T &instance();
+
     Singleton(const Singleton &) = delete;
-    Singleton &operator=(const Singleton &) = delete;
+    Singleton &operator=(const Singleton) = delete;
 
 protected:
     struct token
     {
-    }; // helper class
-    Singleton() noexcept = default;
+    };
+    Singleton() {}
 };
+
+#include <memory>
+template <typename T>
+T &Singleton<T>::instance()
+{
+    static const std::unique_ptr<T> instance{new T{token{}}};
+    return *instance;
+}

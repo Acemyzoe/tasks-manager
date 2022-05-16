@@ -18,7 +18,7 @@ public:
 
 int main(int argc, char *argv[])
 {
-    DerivedSingle &instance1 = DerivedSingle::get_instance();
-    DerivedSingle &instance2 = DerivedSingle::get_instance();
+    DerivedSingle &instance1 = DerivedSingle::instance();
+    DerivedSingle &instance2 = DerivedSingle::instance();
     return 0;
 }

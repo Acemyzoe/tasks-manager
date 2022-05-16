@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ace/文档/mqtttasks
+CMAKE_SOURCE_DIR = /home/ace/文档/tasks-manager/test_mqtttasks
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ace/文档/mqtttasks/build
+CMAKE_BINARY_DIR = /home/ace/文档/tasks-manager/test_mqtttasks/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/examples/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/examples/main.cpp.o: ../examples/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/examples/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/examples/main.cpp.o -c /home/ace/文档/mqtttasks/examples/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/examples/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/examples/main.cpp.o -c /home/ace/文档/tasks-manager/test_mqtttasks/examples/main.cpp
 
 CMakeFiles/main.dir/examples/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/examples/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/文档/mqtttasks/examples/main.cpp > CMakeFiles/main.dir/examples/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ace/文档/tasks-manager/test_mqtttasks/examples/main.cpp > CMakeFiles/main.dir/examples/main.cpp.i
 
 CMakeFiles/main.dir/examples/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/examples/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/文档/mqtttasks/examples/main.cpp -o CMakeFiles/main.dir/examples/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ace/文档/tasks-manager/test_mqtttasks/examples/main.cpp -o CMakeFiles/main.dir/examples/main.cpp.s
 
 CMakeFiles/main.dir/examples/mqtttasks.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/examples/mqtttasks.c.o: ../examples/mqtttasks.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/examples/mqtttasks.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/examples/mqtttasks.c.o   -c /home/ace/文档/mqtttasks/examples/mqtttasks.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/examples/mqtttasks.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/main.dir/examples/mqtttasks.c.o   -c /home/ace/文档/tasks-manager/test_mqtttasks/examples/mqtttasks.c
 
 CMakeFiles/main.dir/examples/mqtttasks.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.dir/examples/mqtttasks.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ace/文档/mqtttasks/examples/mqtttasks.c > CMakeFiles/main.dir/examples/mqtttasks.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ace/文档/tasks-manager/test_mqtttasks/examples/mqtttasks.c > CMakeFiles/main.dir/examples/mqtttasks.c.i
 
 CMakeFiles/main.dir/examples/mqtttasks.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.dir/examples/mqtttasks.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/文档/mqtttasks/examples/mqtttasks.c -o CMakeFiles/main.dir/examples/mqtttasks.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/文档/tasks-manager/test_mqtttasks/examples/mqtttasks.c -o CMakeFiles/main.dir/examples/mqtttasks.c.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -96,7 +96,7 @@ main: CMakeFiles/main.dir/examples/mqtttasks.c.o
 main: CMakeFiles/main.dir/build.make
 main: libmqttc.a
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/文档/mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -109,6 +109,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /home/ace/文档/mqtttasks/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ace/文档/mqtttasks /home/ace/文档/mqtttasks /home/ace/文档/mqtttasks/build /home/ace/文档/mqtttasks/build /home/ace/文档/mqtttasks/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ace/文档/tasks-manager/test_mqtttasks/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ace/文档/tasks-manager/test_mqtttasks /home/ace/文档/tasks-manager/test_mqtttasks /home/ace/文档/tasks-manager/test_mqtttasks/build /home/ace/文档/tasks-manager/test_mqtttasks/build /home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

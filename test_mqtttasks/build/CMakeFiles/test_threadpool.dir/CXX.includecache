@@ -40,13 +40,13 @@ functional
 stdexcept
 -
 
-/home/ace/文档/mqtttasks/examples/test_threadpool.cpp
+/home/ace/文档/tasks-manager/test_mqtttasks/examples/test_threadpool.cpp
 ThreadPool.hpp
-/home/ace/文档/mqtttasks/examples/ThreadPool.hpp
+/home/ace/文档/tasks-manager/test_mqtttasks/examples/ThreadPool.hpp
 iostream
 -
 Tester.hpp
-/home/ace/文档/mqtttasks/examples/Tester.hpp
+/home/ace/文档/tasks-manager/test_mqtttasks/examples/Tester.hpp
 functional
 -
 string

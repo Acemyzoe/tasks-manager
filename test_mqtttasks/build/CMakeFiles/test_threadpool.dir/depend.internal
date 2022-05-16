@@ -4,4 +4,4 @@
 CMakeFiles/test_threadpool.dir/examples/test_threadpool.cpp.o
  ../include/Tester.hpp
  ../include/ThreadPool.hpp
- /home/ace/文档/mqtttasks/examples/test_threadpool.cpp
+ /home/ace/文档/tasks-manager/test_mqtttasks/examples/test_threadpool.cpp

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ace/文档/mqtttasks/src/mqtt.c" "/home/ace/文档/mqtttasks/build/CMakeFiles/mqttc.dir/src/mqtt.c.o"
-  "/home/ace/文档/mqtttasks/src/mqtt_pal.c" "/home/ace/文档/mqtttasks/build/CMakeFiles/mqttc.dir/src/mqtt_pal.c.o"
+  "/home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt.c" "/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/mqttc.dir/src/mqtt.c.o"
+  "/home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt_pal.c" "/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/mqttc.dir/src/mqtt_pal.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

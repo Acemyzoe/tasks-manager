@@ -42,11 +42,11 @@ stdint.h
 openssl/bio.h
 -
 
-/home/ace/文档/mqtttasks/src/mqtt.c
+/home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt.c
 mqtt.h
 -
 
-/home/ace/文档/mqtttasks/src/mqtt_pal.c
+/home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt_pal.c
 mqtt.h
 -
 mbedtls/ssl.h

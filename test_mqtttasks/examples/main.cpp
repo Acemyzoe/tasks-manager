@@ -35,10 +35,16 @@ void test_transwarp()
                      { return a + b; },
                      parent1, parent2)
                      ->named("return");
-    child->add_listener_all(std::make_shared<tw::timer>());
-    child->add_listener_all(std::make_shared<tw::releaser>());
-    tw::parallel executor{4};
+
+    // child->add_listener_all(std::make_shared<tw::timer>());// 测试timer
+    // child->add_listener_all(std::make_shared<tw::releaser>());// 测试releaser
+
+    tw::parallel executor{4}; // 并行执行
     child->schedule_all(executor);
+
+    tw::sequential executor2; // 串行执行
+    // child->schedule_all(executor2);
+
     std::ofstream{"test_transwarp.dot"} << tw::to_string(child->edges());
 }
 

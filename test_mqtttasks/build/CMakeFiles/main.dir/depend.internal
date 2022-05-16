@@ -6,7 +6,7 @@ CMakeFiles/main.dir/examples/mqtttasks.c.o
  ../include/mqtt_pal.h
  ../include/mqtttasks.h
  ../include/posix_sockets.h
- /home/ace/文档/mqtttasks/examples/mqtttasks.c
+ /home/ace/文档/tasks-manager/test_mqtttasks/examples/mqtttasks.c
 CMakeFiles/main.dir/examples/main.cpp.o
  ../include/Tester.hpp
  ../include/ThreadPool.hpp
@@ -15,4 +15,4 @@ CMakeFiles/main.dir/examples/main.cpp.o
  ../include/mqtttasks.h
  ../include/posix_sockets.h
  ../include/transwarp.h
- /home/ace/文档/mqtttasks/examples/main.cpp
+ /home/ace/文档/tasks-manager/test_mqtttasks/examples/main.cpp

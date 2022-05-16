@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ace/文档/mqtttasks/examples/mqtttasks.c" "/home/ace/文档/mqtttasks/build/CMakeFiles/main.dir/examples/mqtttasks.c.o"
+  "/home/ace/文档/tasks-manager/test_mqtttasks/examples/mqtttasks.c" "/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/main.dir/examples/mqtttasks.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -19,7 +19,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ace/文档/mqtttasks/examples/main.cpp" "/home/ace/文档/mqtttasks/build/CMakeFiles/main.dir/examples/main.cpp.o"
+  "/home/ace/文档/tasks-manager/test_mqtttasks/examples/main.cpp" "/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/main.dir/examples/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -35,7 +35,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ace/文档/mqtttasks/build/CMakeFiles/mqttc.dir/DependInfo.cmake"
+  "/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/mqttc.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

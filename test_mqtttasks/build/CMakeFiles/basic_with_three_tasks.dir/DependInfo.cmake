@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ace/文档/mqtttasks/examples/basic_with_three_tasks.cpp" "/home/ace/文档/mqtttasks/build/CMakeFiles/basic_with_three_tasks.dir/examples/basic_with_three_tasks.cpp.o"
+  "/home/ace/文档/tasks-manager/test_mqtttasks/examples/basic_with_three_tasks.cpp" "/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/basic_with_three_tasks.dir/examples/basic_with_three_tasks.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

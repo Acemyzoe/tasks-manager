@@ -1,12 +1,8 @@
 digraph {
 "<sub>
-root id=0 lev=0
-avg-idle-us=94
-avg-wait-us=8" -> "<return>
+root id=0 lev=0" -> "<return>
 consume id=2 lev=1"
 "<pub>
-root id=1 lev=0
-avg-idle-us=476
-avg-wait-us=9" -> "<return>
+root id=1 lev=0" -> "<return>
 consume id=2 lev=1"
 }

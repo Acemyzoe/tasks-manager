@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ace/文档/mqtttasks
+CMAKE_SOURCE_DIR = /home/ace/文档/tasks-manager/test_mqtttasks
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ace/文档/mqtttasks/build
+CMAKE_BINARY_DIR = /home/ace/文档/tasks-manager/test_mqtttasks/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mqttc.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/mqttc.dir/flags.make
 
 CMakeFiles/mqttc.dir/src/mqtt_pal.c.o: CMakeFiles/mqttc.dir/flags.make
 CMakeFiles/mqttc.dir/src/mqtt_pal.c.o: ../src/mqtt_pal.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mqttc.dir/src/mqtt_pal.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mqttc.dir/src/mqtt_pal.c.o   -c /home/ace/文档/mqtttasks/src/mqtt_pal.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mqttc.dir/src/mqtt_pal.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mqttc.dir/src/mqtt_pal.c.o   -c /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt_pal.c
 
 CMakeFiles/mqttc.dir/src/mqtt_pal.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mqttc.dir/src/mqtt_pal.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ace/文档/mqtttasks/src/mqtt_pal.c > CMakeFiles/mqttc.dir/src/mqtt_pal.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt_pal.c > CMakeFiles/mqttc.dir/src/mqtt_pal.c.i
 
 CMakeFiles/mqttc.dir/src/mqtt_pal.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mqttc.dir/src/mqtt_pal.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/文档/mqtttasks/src/mqtt_pal.c -o CMakeFiles/mqttc.dir/src/mqtt_pal.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt_pal.c -o CMakeFiles/mqttc.dir/src/mqtt_pal.c.s
 
 CMakeFiles/mqttc.dir/src/mqtt.c.o: CMakeFiles/mqttc.dir/flags.make
 CMakeFiles/mqttc.dir/src/mqtt.c.o: ../src/mqtt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mqttc.dir/src/mqtt.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mqttc.dir/src/mqtt.c.o   -c /home/ace/文档/mqtttasks/src/mqtt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mqttc.dir/src/mqtt.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mqttc.dir/src/mqtt.c.o   -c /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt.c
 
 CMakeFiles/mqttc.dir/src/mqtt.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mqttc.dir/src/mqtt.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ace/文档/mqtttasks/src/mqtt.c > CMakeFiles/mqttc.dir/src/mqtt.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt.c > CMakeFiles/mqttc.dir/src/mqtt.c.i
 
 CMakeFiles/mqttc.dir/src/mqtt.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mqttc.dir/src/mqtt.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/文档/mqtttasks/src/mqtt.c -o CMakeFiles/mqttc.dir/src/mqtt.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt.c -o CMakeFiles/mqttc.dir/src/mqtt.c.s
 
 # Object files for target mqttc
 mqttc_OBJECTS = \
@@ -95,7 +95,7 @@ libmqttc.a: CMakeFiles/mqttc.dir/src/mqtt_pal.c.o
 libmqttc.a: CMakeFiles/mqttc.dir/src/mqtt.c.o
 libmqttc.a: CMakeFiles/mqttc.dir/build.make
 libmqttc.a: CMakeFiles/mqttc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/文档/mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libmqttc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libmqttc.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/mqttc.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mqttc.dir/link.txt --verbose=$(VERBOSE)
 
@@ -109,6 +109,6 @@ CMakeFiles/mqttc.dir/clean:
 .PHONY : CMakeFiles/mqttc.dir/clean
 
 CMakeFiles/mqttc.dir/depend:
-	cd /home/ace/文档/mqtttasks/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ace/文档/mqtttasks /home/ace/文档/mqtttasks /home/ace/文档/mqtttasks/build /home/ace/文档/mqtttasks/build /home/ace/文档/mqtttasks/build/CMakeFiles/mqttc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ace/文档/tasks-manager/test_mqtttasks/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ace/文档/tasks-manager/test_mqtttasks /home/ace/文档/tasks-manager/test_mqtttasks /home/ace/文档/tasks-manager/test_mqtttasks/build /home/ace/文档/tasks-manager/test_mqtttasks/build /home/ace/文档/tasks-manager/test_mqtttasks/build/CMakeFiles/mqttc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mqttc.dir/depend
 

@@ -56,9 +56,9 @@ utility
 vector
 -
 
-/home/ace/文档/mqtttasks/examples/basic_with_three_tasks.cpp
+/home/ace/文档/tasks-manager/test_mqtttasks/examples/basic_with_three_tasks.cpp
 basic_with_three_tasks.h
-/home/ace/文档/mqtttasks/examples/basic_with_three_tasks.h
+/home/ace/文档/tasks-manager/test_mqtttasks/examples/basic_with_three_tasks.h
 transwarp.h
 -
 fstream

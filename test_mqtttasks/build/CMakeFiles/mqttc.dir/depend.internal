@@ -4,8 +4,8 @@
 CMakeFiles/mqttc.dir/src/mqtt.c.o
  ../include/mqtt.h
  ../include/mqtt_pal.h
- /home/ace/文档/mqtttasks/src/mqtt.c
+ /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt.c
 CMakeFiles/mqttc.dir/src/mqtt_pal.c.o
  ../include/mqtt.h
  ../include/mqtt_pal.h
- /home/ace/文档/mqtttasks/src/mqtt_pal.c
+ /home/ace/文档/tasks-manager/test_mqtttasks/src/mqtt_pal.c

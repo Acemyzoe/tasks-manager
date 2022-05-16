@@ -7,11 +7,11 @@ C_FLAGS =
 
 C_DEFINES = -DTRANSWARP_CPP11
 
-C_INCLUDES = -I/home/ace/文档/mqtttasks/include 
+C_INCLUDES = -I/home/ace/文档/tasks-manager/test_mqtttasks/include 
 
 CXX_FLAGS =  
 
 CXX_DEFINES = -DTRANSWARP_CPP11
 
-CXX_INCLUDES = -I/home/ace/文档/mqtttasks/include 
+CXX_INCLUDES = -I/home/ace/文档/tasks-manager/test_mqtttasks/include 
 

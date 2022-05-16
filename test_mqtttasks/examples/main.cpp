@@ -40,10 +40,17 @@ void test_transwarp()
     // child->add_listener_all(std::make_shared<tw::releaser>());// 测试releaser
 
     tw::parallel executor{4}; // 并行执行
-    child->schedule_all(executor);
+    parent1->schedule(executor);
+    parent2->schedule(executor);
+    // child->schedule_all(executor);
 
+    double x = 0;
+    auto parent3 = tw::make_task(tw::root, [&x]
+                                 { return 13.3 + x; })
+                       ->named("something");
     tw::sequential executor2; // 串行执行
-    // child->schedule_all(executor2);
+    parent3->schedule_all(executor2);
+    std::cout << parent3 << "result = " << parent3->get() << std::endl;
 
     std::ofstream{"test_transwarp.dot"} << tw::to_string(child->edges());
 }

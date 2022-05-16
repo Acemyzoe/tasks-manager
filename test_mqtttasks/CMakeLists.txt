@@ -41,6 +41,9 @@ if(EXAMPLES)
     add_executable(test_threadpool examples/test_threadpool.cpp)
     target_link_libraries(test_threadpool Threads::Threads)
 
+    add_executable(test_queue examples/test_queue.cpp)
+    target_link_libraries(test_queue Threads::Threads)
+
 endif()
 
 if(TESTS)

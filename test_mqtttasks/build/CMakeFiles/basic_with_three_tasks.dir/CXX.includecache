@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/basic_with_three_tasks.h
-iostream
--
-
 ../include/transwarp.h
 algorithm
 -
@@ -63,6 +59,10 @@ transwarp.h
 -
 fstream
 -
+iostream
+-
+
+/home/ace/文档/tasks-manager/test_mqtttasks/examples/basic_with_three_tasks.h
 iostream
 -
 

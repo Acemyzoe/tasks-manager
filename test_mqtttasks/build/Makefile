@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_queue
+
+# Build rule for target.
+test_queue: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_queue
+.PHONY : test_queue
+
+# fast build rule for target.
+test_queue/fast:
+	$(MAKE) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/build
+.PHONY : test_queue/fast
+
+#=============================================================================
 # Target rules for targets named test_threadpool
 
 # Build rule for target.
@@ -300,6 +313,33 @@ examples/mqtttasks.c.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/examples/mqtttasks.c.s
 .PHONY : examples/mqtttasks.c.s
 
+examples/test_queue.o: examples/test_queue.cpp.o
+
+.PHONY : examples/test_queue.o
+
+# target to build an object file
+examples/test_queue.cpp.o:
+	$(MAKE) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/examples/test_queue.cpp.o
+.PHONY : examples/test_queue.cpp.o
+
+examples/test_queue.i: examples/test_queue.cpp.i
+
+.PHONY : examples/test_queue.i
+
+# target to preprocess a source file
+examples/test_queue.cpp.i:
+	$(MAKE) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/examples/test_queue.cpp.i
+.PHONY : examples/test_queue.cpp.i
+
+examples/test_queue.s: examples/test_queue.cpp.s
+
+.PHONY : examples/test_queue.s
+
+# target to generate assembly for a file
+examples/test_queue.cpp.s:
+	$(MAKE) -f CMakeFiles/test_queue.dir/build.make CMakeFiles/test_queue.dir/examples/test_queue.cpp.s
+.PHONY : examples/test_queue.cpp.s
+
 examples/test_threadpool.o: examples/test_threadpool.cpp.o
 
 .PHONY : examples/test_threadpool.o
@@ -393,6 +433,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... test_queue"
 	@echo "... install/local"
 	@echo "... test_threadpool"
 	@echo "... basic_with_three_tasks"
@@ -407,6 +448,9 @@ help:
 	@echo "... examples/mqtttasks.o"
 	@echo "... examples/mqtttasks.i"
 	@echo "... examples/mqtttasks.s"
+	@echo "... examples/test_queue.o"
+	@echo "... examples/test_queue.i"
+	@echo "... examples/test_queue.s"
 	@echo "... examples/test_threadpool.o"
 	@echo "... examples/test_threadpool.i"
 	@echo "... examples/test_threadpool.s"

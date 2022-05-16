@@ -1,0 +1,8 @@
+digraph {
+"<something>
+root id=0 lev=0" -> "<adder>
+consume id=2 lev=1"
+"<something else>
+root id=1 lev=0" -> "<adder>
+consume id=2 lev=1"
+}

@@ -5,6 +5,6 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 add_test(test_main "main")
-set_tests_properties(test_main PROPERTIES  _BACKTRACE_TRIPLES "/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;48;add_test;/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;0;")
+set_tests_properties(test_main PROPERTIES  _BACKTRACE_TRIPLES "/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;51;add_test;/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;0;")
 add_test(test_transwarp "basic_with_three_tasks")
-set_tests_properties(test_transwarp PROPERTIES  _BACKTRACE_TRIPLES "/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;49;add_test;/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;0;")
+set_tests_properties(test_transwarp PROPERTIES  _BACKTRACE_TRIPLES "/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;52;add_test;/home/ace/文档/tasks-manager/test_mqtttasks/CMakeLists.txt;0;")

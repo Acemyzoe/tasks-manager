@@ -1,0 +1,108 @@
+Start testing: May 16 14:00 CST
+----------------------------------------------------------
+1/4 Testing: test_tw
+1/4 Test: test_tw
+Command: "/home/ace/文档/tasks-manager/test_mqtttasks/build/test_tw"
+Directory: /home/ace/文档/tasks-manager/test_mqtttasks/build
+"test_tw" start time: May 16 14:00 CST
+Output:
+----------------------------------------------------------
+Test: Running 1 tests
+Test test_transwarp... 0x55eb37ed4cd0result = 13.3
+Received publish('datetime'): temperature: 0
+Received publish('datetime'): temperature: 1
+Received publish('datetime'): temperature: 2
+Received publish('datetime'): temperature: 3
+Received publish('datetime'): temperature: 4
+Received publish('datetime'): temperature: 5
+Received publish('datetime'): temperature: 6
+Received publish('datetime'): temperature: 7
+Received publish('datetime'): temperature: 8
+Received publish('datetime'): temperature: 9
+OK!耗时：10004ms
+<end of output>
+Test time =  10.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_tw" end time: May 16 14:00 CST
+"test_tw" time elapsed: 00:00:10
+----------------------------------------------------------
+
+2/4 Testing: test_transwarp
+2/4 Test: test_transwarp
+Command: "/home/ace/文档/tasks-manager/test_mqtttasks/build/basic_with_three_tasks"
+Directory: /home/ace/文档/tasks-manager/test_mqtttasks/build
+"test_transwarp" start time: May 16 14:00 CST
+Output:
+----------------------------------------------------------
+Running example: basic_with_three_tasks ...
+result = 55.3
+result = 58.8
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_transwarp" end time: May 16 14:00 CST
+"test_transwarp" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: test_threadpool
+3/4 Test: test_threadpool
+Command: "/home/ace/文档/tasks-manager/test_mqtttasks/build/test_threadpool"
+Directory: /home/ace/文档/tasks-manager/test_mqtttasks/build
+"test_threadpool" start time: May 16 14:00 CST
+Output:
+----------------------------------------------------------
+Test ThreadPool: Running 5 tests
+Test THREADPOOL eg.1... OK!耗时：1ms
+Test THREADPOOL eg.2... 140691700995840
+140691709388544
+140691692603136
+140691684210432
+线程池耗时：1000ms
+140691675817728
+140691675817728
+140691675817728
+140691675817728
+单线程耗时：4002ms
+OK!耗时：5003ms
+Test THREADPOOL eg.3... 0
+1
+2
+3
+4
+OK!耗时：1001ms
+Test THREADPOOL eg.4... OK!耗时：0ms
+Test THREADPOOL eg.5... OK!耗时：0ms
+<end of output>
+Test time =   6.02 sec
+----------------------------------------------------------
+Test Passed.
+"test_threadpool" end time: May 16 14:00 CST
+"test_threadpool" time elapsed: 00:00:06
+----------------------------------------------------------
+
+4/4 Testing: test_queue
+4/4 Test: test_queue
+Command: "/home/ace/文档/tasks-manager/test_mqtttasks/build/test_queue"
+Directory: /home/ace/文档/tasks-manager/test_mqtttasks/build
+"test_queue" start time: May 16 14:00 CST
+Output:
+----------------------------------------------------------
+Test QUEUE: Running 7 tests
+Test MsgUID generation... OK!耗时：0ms
+Test 1-to-1 message order... OK!耗时：3ms
+Test 2-to-1 message order... OK!耗时：3ms
+Test DataMsg... OK!耗时：0ms
+Test receive timeout... OK!耗时：10ms
+Test tryGet... OK!耗时：0ms
+Test 2-to-1 request-response... OK!耗时：26ms
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"test_queue" end time: May 16 14:00 CST
+"test_queue" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 16 14:00 CST

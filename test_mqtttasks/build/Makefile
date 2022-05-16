@@ -207,6 +207,19 @@ basic_with_three_tasks/fast:
 .PHONY : basic_with_three_tasks/fast
 
 #=============================================================================
+# Target rules for targets named test_tw
+
+# Build rule for target.
+test_tw: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_tw
+.PHONY : test_tw
+
+# fast build rule for target.
+test_tw/fast:
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/build
+.PHONY : test_tw/fast
+
+#=============================================================================
 # Target rules for targets named mqttc
 
 # Build rule for target.
@@ -218,19 +231,6 @@ mqttc: cmake_check_build_system
 mqttc/fast:
 	$(MAKE) -f CMakeFiles/mqttc.dir/build.make CMakeFiles/mqttc.dir/build
 .PHONY : mqttc/fast
-
-#=============================================================================
-# Target rules for targets named main
-
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
-
-# fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
 
 examples/basic_with_three_tasks.o: examples/basic_with_three_tasks.cpp.o
 
@@ -259,40 +259,13 @@ examples/basic_with_three_tasks.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_with_three_tasks.dir/build.make CMakeFiles/basic_with_three_tasks.dir/examples/basic_with_three_tasks.cpp.s
 .PHONY : examples/basic_with_three_tasks.cpp.s
 
-examples/main.o: examples/main.cpp.o
-
-.PHONY : examples/main.o
-
-# target to build an object file
-examples/main.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/examples/main.cpp.o
-.PHONY : examples/main.cpp.o
-
-examples/main.i: examples/main.cpp.i
-
-.PHONY : examples/main.i
-
-# target to preprocess a source file
-examples/main.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/examples/main.cpp.i
-.PHONY : examples/main.cpp.i
-
-examples/main.s: examples/main.cpp.s
-
-.PHONY : examples/main.s
-
-# target to generate assembly for a file
-examples/main.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/examples/main.cpp.s
-.PHONY : examples/main.cpp.s
-
 examples/mqtttasks.o: examples/mqtttasks.c.o
 
 .PHONY : examples/mqtttasks.o
 
 # target to build an object file
 examples/mqtttasks.c.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/examples/mqtttasks.c.o
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/mqtttasks.c.o
 .PHONY : examples/mqtttasks.c.o
 
 examples/mqtttasks.i: examples/mqtttasks.c.i
@@ -301,7 +274,7 @@ examples/mqtttasks.i: examples/mqtttasks.c.i
 
 # target to preprocess a source file
 examples/mqtttasks.c.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/examples/mqtttasks.c.i
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/mqtttasks.c.i
 .PHONY : examples/mqtttasks.c.i
 
 examples/mqtttasks.s: examples/mqtttasks.c.s
@@ -310,7 +283,7 @@ examples/mqtttasks.s: examples/mqtttasks.c.s
 
 # target to generate assembly for a file
 examples/mqtttasks.c.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/examples/mqtttasks.c.s
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/mqtttasks.c.s
 .PHONY : examples/mqtttasks.c.s
 
 examples/test_queue.o: examples/test_queue.cpp.o
@@ -366,6 +339,33 @@ examples/test_threadpool.s: examples/test_threadpool.cpp.s
 examples/test_threadpool.cpp.s:
 	$(MAKE) -f CMakeFiles/test_threadpool.dir/build.make CMakeFiles/test_threadpool.dir/examples/test_threadpool.cpp.s
 .PHONY : examples/test_threadpool.cpp.s
+
+examples/test_tw.o: examples/test_tw.cpp.o
+
+.PHONY : examples/test_tw.o
+
+# target to build an object file
+examples/test_tw.cpp.o:
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/test_tw.cpp.o
+.PHONY : examples/test_tw.cpp.o
+
+examples/test_tw.i: examples/test_tw.cpp.i
+
+.PHONY : examples/test_tw.i
+
+# target to preprocess a source file
+examples/test_tw.cpp.i:
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/test_tw.cpp.i
+.PHONY : examples/test_tw.cpp.i
+
+examples/test_tw.s: examples/test_tw.cpp.s
+
+.PHONY : examples/test_tw.s
+
+# target to generate assembly for a file
+examples/test_tw.cpp.s:
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/test_tw.cpp.s
+.PHONY : examples/test_tw.cpp.s
 
 src/mqtt.o: src/mqtt.c.o
 
@@ -437,14 +437,11 @@ help:
 	@echo "... install/local"
 	@echo "... test_threadpool"
 	@echo "... basic_with_three_tasks"
+	@echo "... test_tw"
 	@echo "... mqttc"
-	@echo "... main"
 	@echo "... examples/basic_with_three_tasks.o"
 	@echo "... examples/basic_with_three_tasks.i"
 	@echo "... examples/basic_with_three_tasks.s"
-	@echo "... examples/main.o"
-	@echo "... examples/main.i"
-	@echo "... examples/main.s"
 	@echo "... examples/mqtttasks.o"
 	@echo "... examples/mqtttasks.i"
 	@echo "... examples/mqtttasks.s"
@@ -454,6 +451,9 @@ help:
 	@echo "... examples/test_threadpool.o"
 	@echo "... examples/test_threadpool.i"
 	@echo "... examples/test_threadpool.s"
+	@echo "... examples/test_tw.o"
+	@echo "... examples/test_tw.i"
+	@echo "... examples/test_tw.s"
 	@echo "... src/mqtt.o"
 	@echo "... src/mqtt.i"
 	@echo "... src/mqtt.s"

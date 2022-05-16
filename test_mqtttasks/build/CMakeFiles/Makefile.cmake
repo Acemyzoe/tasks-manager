@@ -54,6 +54,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_queue.dir/DependInfo.cmake"
   "CMakeFiles/test_threadpool.dir/DependInfo.cmake"
   "CMakeFiles/basic_with_three_tasks.dir/DependInfo.cmake"
+  "CMakeFiles/test_tw.dir/DependInfo.cmake"
   "CMakeFiles/mqttc.dir/DependInfo.cmake"
-  "CMakeFiles/main.dir/DependInfo.cmake"
   )

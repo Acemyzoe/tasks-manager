@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test_tw.dir/examples/test_tw.cpp.o CMakeFiles/test_tw.dir/examples/mqtttasks.c.o  -o test_tw  libmqttc.a -lpthread 

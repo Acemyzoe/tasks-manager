@@ -31,8 +31,8 @@ target_link_libraries(mqttc PUBLIC
 # Build examples
 if(EXAMPLES)
     find_package(Threads REQUIRED)
-    add_executable(main examples/main.cpp examples/mqtttasks.c)
-    target_link_libraries(main Threads::Threads mqttc)
+    add_executable(test_tw examples/test_tw.cpp examples/mqtttasks.c)
+    target_link_libraries(test_tw Threads::Threads mqttc)
 
     add_executable(basic_with_three_tasks
         examples/basic_with_three_tasks.cpp)
@@ -48,6 +48,8 @@ endif()
 
 if(TESTS)
     enable_testing()
-    add_test(test_main main)
+    add_test(test_tw test_tw)
     add_test(test_transwarp basic_with_three_tasks)
+    add_test(test_threadpool test_threadpool)
+    add_test(test_queue test_queue)
 endif()

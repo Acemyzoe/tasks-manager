@@ -9,7 +9,9 @@
 #include <utility>
 /**
  * Queue is a thread-safe message queue.
+ * 线程安全的消息队列
  * It supports one-way messaging and request-response pattern.
+ * 支持单向消息和请求-回复模式
  */
 class Queue
 {

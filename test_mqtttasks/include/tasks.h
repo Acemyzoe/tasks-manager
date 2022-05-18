@@ -46,6 +46,7 @@ public:
         if (task_type_ == TASK_TYPE_ASYNC)
         {
             auto res = pool_->enqueue(std::forward<F>(f), std::forward<Args>(args)...);
+            // return res.get();
         }
         else if (task_type_ == TASK_TYPE_SERIAL)
         {
@@ -53,6 +54,7 @@ public:
             // t.join();
             auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
             res->schedule(executor_serial);
+            // return res->get();
         }
         else
         {
@@ -70,28 +72,34 @@ private:
 
 class Twtasks
 {
+    int task_type_;
+    tw::parallel executor_async{THREAD_NUM};
+    tw::sequential executor_serial;
+
 public:
     Twtasks(){};
     ~Twtasks(){};
 
     // 添加任务
     template <class F, class... Args>
-    void add_task(F &&f, Args &&...args, int task_type_)
+    int add_task(F &&f, Args &&...args, int task_type_)
     {
         auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
         if (task_type_ == TASK_TYPE_ASYNC)
         {
-            // tw::parallel executor_async{THREAD_NUM};
-            // res->schedule(executor_async);
+            // FIXME: 异步任务不能正确执行
+            res->schedule(executor_async);
+            return res->was_scheduled();
         }
         else if (task_type_ == TASK_TYPE_SERIAL)
         {
-            // tw::sequential executor_serial;
-            // res->schedule(executor_serial);
+            res->schedule(executor_serial);
+            return res->was_scheduled();
         }
         else
         {
             std::cout << "task_type error" << std::endl;
+            return -1;
         }
     };
 
@@ -102,9 +110,6 @@ public:
         thread_info.push_back(THREAD_NUM);
         return thread_info;
     };
-
-private:
-    int task_type_;
 };
 
 #endif

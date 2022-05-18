@@ -33,7 +33,7 @@ int pub()
     const char *addr;
     const char *port;
     addr = "localhost";
-    port = "1234";
+    port = "1883";
     int sockfd = open_nb_socket(addr, port);
     /* instantiate the client */
     uint8_t sendbuf[2048];                                                                            /* sendbuf should be large enough to hold multiple whole mqtt messages */
@@ -76,7 +76,7 @@ int sub()
     const char *addr;
     const char *port;
     addr = "localhost";
-    port = "1234";
+    port = "1883";
     int sockfd = open_nb_socket(addr, port);
 
     if (sockfd == -1)

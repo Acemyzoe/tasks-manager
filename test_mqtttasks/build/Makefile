@@ -306,6 +306,7 @@ examples/mqtttasks.o: examples/mqtttasks.c.o
 # target to build an object file
 examples/mqtttasks.c.o:
 	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/mqtttasks.c.o
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/mqtttasks.c.o
 .PHONY : examples/mqtttasks.c.o
 
 examples/mqtttasks.i: examples/mqtttasks.c.i
@@ -315,6 +316,7 @@ examples/mqtttasks.i: examples/mqtttasks.c.i
 # target to preprocess a source file
 examples/mqtttasks.c.i:
 	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/mqtttasks.c.i
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/mqtttasks.c.i
 .PHONY : examples/mqtttasks.c.i
 
 examples/mqtttasks.s: examples/mqtttasks.c.s
@@ -324,6 +326,7 @@ examples/mqtttasks.s: examples/mqtttasks.c.s
 # target to generate assembly for a file
 examples/mqtttasks.c.s:
 	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/examples/mqtttasks.c.s
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/mqtttasks.c.s
 .PHONY : examples/mqtttasks.c.s
 
 examples/test_queue.o: examples/test_queue.cpp.o

@@ -44,8 +44,8 @@ if(EXAMPLES)
     add_executable(test_queue examples/test_queue.cpp)
     target_link_libraries(test_queue Threads::Threads)
 
-    add_executable(demo examples/demo.cpp)
-    target_link_libraries(demo Threads::Threads)
+    add_executable(demo examples/demo.cpp examples/mqtttasks.c)
+    target_link_libraries(demo Threads::Threads mqttc)
 
 endif()
 

@@ -1,8 +1,9 @@
 #include "tasks.h"
 #include <iostream>
 #include <time.h>
-namespace tw = transwarp;
-int main()
+#include "mqtttasks.h"
+
+int test_Task()
 {
     Tasks tasks;
     int task_type = 0;
@@ -24,5 +25,24 @@ int main()
 
     vector<int> thread_num = tasks.get_thread_info();
     std::cout << "thread_num: " << thread_num[0] << std::endl;
+    return 0;
+}
+
+int test_mqtt()
+{
+    Tasks tasks;
+    int task_type = 1;
+    tasks.add_task(sub, task_type);
+    tasks.add_task(pub, task_type);
+
+    vector<int> thread_num = tasks.get_thread_info();
+    std::cout << "thread_num: " << thread_num[0] << std::endl;
+    return 0;
+}
+
+int main()
+{
+    test_Task();
+    test_mqtt();
     return 0;
 }

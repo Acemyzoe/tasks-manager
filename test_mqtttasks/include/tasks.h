@@ -16,7 +16,7 @@ namespace tw = transwarp;
 #ifndef THREAD_NUM // 线程数量
 #define THREAD_NUM 4
 #endif
-// tasks class
+// 任务管理
 class Tasks
 {
 public:
@@ -69,47 +69,75 @@ private:
     tw::sequential executor_serial;
     tw::parallel executor_parallel{4};
 };
-
-class Twtasks
+// 消息队列
+class Msgqueue : public Queue
 {
-    int task_type_;
-    tw::parallel executor_async{THREAD_NUM};
-    tw::sequential executor_serial;
+    Queue q;
 
 public:
-    Twtasks(){};
-    ~Twtasks(){};
+    Msgqueue(){};
+    ~Msgqueue(){};
 
-    // 添加任务
-    template <class F, class... Args>
-    int add_task(F &&f, Args &&...args, int task_type_)
+    // put msg
+    template <typename T>
+    void put_msg(int msg_id, T msg)
     {
-        auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
-        if (task_type_ == TASK_TYPE_ASYNC)
-        {
-            // FIXME: 异步任务不能正确执行
-            res->schedule(executor_async);
-            return res->was_scheduled();
-        }
-        else if (task_type_ == TASK_TYPE_SERIAL)
-        {
-            res->schedule(executor_serial);
-            return res->was_scheduled();
-        }
-        else
-        {
-            std::cout << "task_type error" << std::endl;
-            return -1;
-        }
+        q.put(DataMsg<T>(msg_id, msg));
     };
 
-    // 获取线程池信息
-    vector<int> get_thread_info()
+    // get msg
+    auto get_msg()
     {
-        vector<int> thread_info;
-        thread_info.push_back(THREAD_NUM);
-        return thread_info;
+        auto m = q.get();
+        auto &dm = dynamic_cast<DataMsg<std::string> &>(*m);
+        return dm.getPayload();
     };
 };
 
+#ifdef TW
+{
+    class Twtasks
+    {
+        int task_type_;
+        tw::parallel executor_async{THREAD_NUM};
+        tw::sequential executor_serial;
+
+    public:
+        Twtasks(){};
+        ~Twtasks(){};
+
+        // 添加任务
+        template <class F, class... Args>
+        int add_task(F &&f, Args &&...args, int task_type_)
+        {
+            auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
+            if (task_type_ == TASK_TYPE_ASYNC)
+            {
+                // FIXME: 异步任务不能正确执行
+                res->schedule(executor_async);
+                return res->was_scheduled();
+            }
+            else if (task_type_ == TASK_TYPE_SERIAL)
+            {
+                res->schedule(executor_serial);
+                return res->was_scheduled();
+            }
+            else
+            {
+                std::cout << "task_type error" << std::endl;
+                return -1;
+            }
+        };
+
+        // 获取线程池信息
+        vector<int> get_thread_info()
+        {
+            vector<int> thread_info;
+            thread_info.push_back(THREAD_NUM);
+            return thread_info;
+        };
+    };
+}
 #endif
+
+#endif // TASKS_H

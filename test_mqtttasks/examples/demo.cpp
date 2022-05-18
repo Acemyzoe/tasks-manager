@@ -40,9 +40,20 @@ int test_mqtt()
     return 0;
 }
 
+int test_msg()
+{
+    Msgqueue msgqueue;
+    msgqueue.put_msg(1, std::string("hello"));
+    msgqueue.put_msg(2, std::string("world"));
+    std::cout << msgqueue.get_msg() << std::endl;
+    std::cout << msgqueue.get_msg() << std::endl;
+    return 0;
+}
+
 int main()
 {
-    test_Task();
-    test_mqtt();
+    // test_Task();
+    // test_mqtt();
+    test_msg();
     return 0;
 }

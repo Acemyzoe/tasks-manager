@@ -54,6 +54,11 @@ int main()
 {
     // test_Task();
     // test_mqtt();
-    test_msg();
+    // test_msg();
+    tw::parallel exec{4};
+    tw::make_task(tw::root, test_Task)->schedule(exec);
+    tw::make_task(tw::root, test_mqtt)->schedule(exec);
+    tw::make_task(tw::root, test_msg)->schedule(exec);
+
     return 0;
 }

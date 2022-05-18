@@ -14,11 +14,17 @@ public:
     }
     // DerivedSingle(const DerivedSingle &) = delete;            // disable copy constructor
     // DerivedSingle &operator=(const DerivedSingle &) = delete; // disable copy assignment
+    void print()
+    {
+        std::cout << "print called!" << std::endl;
+    }
 };
 
 int main(int argc, char *argv[])
 {
     DerivedSingle &instance1 = DerivedSingle::instance();
     DerivedSingle &instance2 = DerivedSingle::instance();
+    instance1.print();
+    instance2.print();
     return 0;
 }

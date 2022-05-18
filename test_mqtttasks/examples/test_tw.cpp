@@ -48,6 +48,7 @@ void test_transwarp()
     auto parent3 = tw::make_task(tw::root, [&x]
                                  { return 13.3 + x; })
                        ->named("something");
+
     tw::sequential executor2; // 串行执行
     parent3->schedule_all(executor2);
     std::cout << parent3 << "result = " << parent3->get() << std::endl;

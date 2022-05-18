@@ -6,67 +6,105 @@
 #include "Queue.hpp"
 #include "Msg.hpp"
 #include "transwarp.h"
+#include <iostream>
 using namespace std;
 namespace tw = transwarp;
 
+#define TASK_TYPE_SERIAL 0 // 单线程
+#define TASK_TYPE_ASYNC 1  // 异步线程池
+
+#ifndef THREAD_NUM // 线程数量
+#define THREAD_NUM 4
+#endif
 // tasks class
 class Tasks
 {
 public:
-    Tasks(ThreadPool *pool, Queue *queue);
-    ~Tasks();
-    void set_stop_flag(bool flag);
-    bool get_stop_flag();
-    void set_pool(ThreadPool *pool);
-    void set_queue(Queue *queue);
-    void set_thread_num(int num);
-    void set_task_num(int num);
-    void set_task_time(int time);
-    void set_task_interval(int interval);
-    void set_task_type(int type);
-    void set_task_msg(Msg *msg);
-    void set_task_msg_type(int type);
-    void set_task_msg_content(char *content);
-    void set_task_msg_content_len(int len);
-    void set_task_msg_qos(int qos);
-    void set_task_msg_retain(bool retain);
-    void set_task_msg_topic(char *topic);
-    void set_task_msg_topic_len(int len);
-    void set_task_msg_payload(char *payload);
+    Tasks()
+    {
+        pool_ = new ThreadPool(THREAD_NUM);
+        thread_num_ = THREAD_NUM;
+    };
+    ~Tasks()
+    {
+        delete pool_;
+    };
 
-    int get_thread_num();
-    int get_task_num();
-    int get_task_time();
-    int get_task_interval();
-    int get_task_type();
-    Msg *get_task_msg();
-    int get_task_msg_type();
-    char *get_task_msg_content();
-    int get_task_msg_content_len();
-    int get_task_msg_qos();
-    bool get_task_msg_retain();
-    char *get_task_msg_topic();
-    int get_task_msg_topic_len();
-    char *get_task_msg_payload();
+    // 获取线程池信息
+    vector<int> get_thread_info()
+    {
+        vector<int> thread_info;
+        thread_info.push_back(pool_->thrCount());
+        thread_info.push_back(pool_->idlCount());
+        return thread_info;
+    };
+
+    // 添加任务
+    template <class F, class... Args>
+    void add_task(F &&f, Args &&...args, int task_type_)
+    {
+        if (task_type_ == TASK_TYPE_ASYNC)
+        {
+            auto res = pool_->enqueue(std::forward<F>(f), std::forward<Args>(args)...);
+        }
+        else if (task_type_ == TASK_TYPE_SERIAL)
+        {
+            // std::thread t(std::forward<F>(f), std::forward<Args>(args)...);
+            // t.join();
+            auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
+            res->schedule(executor_serial);
+        }
+        else
+        {
+            std::cout << "task_type error" << std::endl;
+        }
+    };
 
 private:
-    ThreadPool *pool;
-    Queue *queue;
-    bool stop_flag;
-    int thread_num;
-    int task_num;
-    int task_time;
-    int task_interval;
-    int task_type;
-    Msg *task_msg;
-    int task_msg_type;
-    char *task_msg_content;
-    int task_msg_content_len;
-    int task_msg_qos;
-    bool task_msg_retain;
-    char *task_msg_topic;
-    int task_msg_topic_len;
-    char *task_msg_payload;
+    ThreadPool *pool_;
+    int thread_num_;
+    int task_type_;
+    tw::sequential executor_serial;
+    tw::parallel executor_parallel{4};
+};
+
+class Twtasks
+{
+public:
+    Twtasks(){};
+    ~Twtasks(){};
+
+    // 添加任务
+    template <class F, class... Args>
+    void add_task(F &&f, Args &&...args, int task_type_)
+    {
+        auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
+        if (task_type_ == TASK_TYPE_ASYNC)
+        {
+            // tw::parallel executor_async{THREAD_NUM};
+            // res->schedule(executor_async);
+        }
+        else if (task_type_ == TASK_TYPE_SERIAL)
+        {
+            // tw::sequential executor_serial;
+            // res->schedule(executor_serial);
+        }
+        else
+        {
+            std::cout << "task_type error" << std::endl;
+        }
+    };
+
+    // 获取线程池信息
+    vector<int> get_thread_info()
+    {
+        vector<int> thread_info;
+        thread_info.push_back(THREAD_NUM);
+        return thread_info;
+    };
+
+private:
+    int task_type_;
 };
 
 #endif

@@ -68,49 +68,17 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target test
 test:
@@ -123,17 +91,49 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,58 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named mqttc
+
+# Build rule for target.
+mqttc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mqttc
+.PHONY : mqttc
+
+# fast build rule for target.
+mqttc/fast:
+	$(MAKE) -f CMakeFiles/mqttc.dir/build.make CMakeFiles/mqttc.dir/build
+.PHONY : mqttc/fast
+
+#=============================================================================
+# Target rules for targets named test_tw
+
+# Build rule for target.
+test_tw: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_tw
+.PHONY : test_tw
+
+# fast build rule for target.
+test_tw/fast:
+	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/build
+.PHONY : test_tw/fast
+
+#=============================================================================
+# Target rules for targets named demo
+
+# Build rule for target.
+demo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo
+.PHONY : demo
+
+# fast build rule for target.
+demo/fast:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/build
+.PHONY : demo/fast
+
+#=============================================================================
+# Target rules for targets named basic_with_three_tasks
+
+# Build rule for target.
+basic_with_three_tasks: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 basic_with_three_tasks
+.PHONY : basic_with_three_tasks
+
+# fast build rule for target.
+basic_with_three_tasks/fast:
+	$(MAKE) -f CMakeFiles/basic_with_three_tasks.dir/build.make CMakeFiles/basic_with_three_tasks.dir/build
+.PHONY : basic_with_three_tasks/fast
+
+#=============================================================================
 # Target rules for targets named test_queue
 
 # Build rule for target.
@@ -192,45 +244,6 @@ test_threadpool: cmake_check_build_system
 test_threadpool/fast:
 	$(MAKE) -f CMakeFiles/test_threadpool.dir/build.make CMakeFiles/test_threadpool.dir/build
 .PHONY : test_threadpool/fast
-
-#=============================================================================
-# Target rules for targets named basic_with_three_tasks
-
-# Build rule for target.
-basic_with_three_tasks: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 basic_with_three_tasks
-.PHONY : basic_with_three_tasks
-
-# fast build rule for target.
-basic_with_three_tasks/fast:
-	$(MAKE) -f CMakeFiles/basic_with_three_tasks.dir/build.make CMakeFiles/basic_with_three_tasks.dir/build
-.PHONY : basic_with_three_tasks/fast
-
-#=============================================================================
-# Target rules for targets named test_tw
-
-# Build rule for target.
-test_tw: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_tw
-.PHONY : test_tw
-
-# fast build rule for target.
-test_tw/fast:
-	$(MAKE) -f CMakeFiles/test_tw.dir/build.make CMakeFiles/test_tw.dir/build
-.PHONY : test_tw/fast
-
-#=============================================================================
-# Target rules for targets named mqttc
-
-# Build rule for target.
-mqttc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 mqttc
-.PHONY : mqttc
-
-# fast build rule for target.
-mqttc/fast:
-	$(MAKE) -f CMakeFiles/mqttc.dir/build.make CMakeFiles/mqttc.dir/build
-.PHONY : mqttc/fast
 
 examples/basic_with_three_tasks.o: examples/basic_with_three_tasks.cpp.o
 
@@ -258,6 +271,33 @@ examples/basic_with_three_tasks.s: examples/basic_with_three_tasks.cpp.s
 examples/basic_with_three_tasks.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_with_three_tasks.dir/build.make CMakeFiles/basic_with_three_tasks.dir/examples/basic_with_three_tasks.cpp.s
 .PHONY : examples/basic_with_three_tasks.cpp.s
+
+examples/demo.o: examples/demo.cpp.o
+
+.PHONY : examples/demo.o
+
+# target to build an object file
+examples/demo.cpp.o:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/demo.cpp.o
+.PHONY : examples/demo.cpp.o
+
+examples/demo.i: examples/demo.cpp.i
+
+.PHONY : examples/demo.i
+
+# target to preprocess a source file
+examples/demo.cpp.i:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/demo.cpp.i
+.PHONY : examples/demo.cpp.i
+
+examples/demo.s: examples/demo.cpp.s
+
+.PHONY : examples/demo.s
+
+# target to generate assembly for a file
+examples/demo.cpp.s:
+	$(MAKE) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/examples/demo.cpp.s
+.PHONY : examples/demo.cpp.s
 
 examples/mqtttasks.o: examples/mqtttasks.c.o
 
@@ -428,20 +468,24 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... test_queue"
-	@echo "... install/local"
-	@echo "... test_threadpool"
-	@echo "... basic_with_three_tasks"
-	@echo "... test_tw"
 	@echo "... mqttc"
+	@echo "... test_tw"
+	@echo "... demo"
+	@echo "... install/local"
+	@echo "... basic_with_three_tasks"
+	@echo "... test_queue"
+	@echo "... test"
+	@echo "... test_threadpool"
+	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... install"
 	@echo "... examples/basic_with_three_tasks.o"
 	@echo "... examples/basic_with_three_tasks.i"
 	@echo "... examples/basic_with_three_tasks.s"
+	@echo "... examples/demo.o"
+	@echo "... examples/demo.i"
+	@echo "... examples/demo.s"
 	@echo "... examples/mqtttasks.o"
 	@echo "... examples/mqtttasks.i"
 	@echo "... examples/mqtttasks.s"

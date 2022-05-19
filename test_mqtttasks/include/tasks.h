@@ -50,10 +50,10 @@ public:
         }
         else if (task_type_ == TASK_TYPE_SERIAL)
         {
-            // std::thread t(std::forward<F>(f), std::forward<Args>(args)...);
-            // t.join();
-            auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
-            res->schedule(executor_serial);
+            std::thread t(std::forward<F>(f), std::forward<Args>(args)...);
+            t.join();
+            // auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
+            // res->schedule(executor_serial);
         }
         else
         {
@@ -93,13 +93,13 @@ public:
     };
 };
 
-#define TW
+// #define TW
 #ifdef TW
 
 class Twtasks
 {
     int task_type_;
-    // tw::parallel executor_async{THREAD_NUM};
+    tw::parallel executor_async{THREAD_NUM};
     tw::sequential executor_serial;
 
 public:
@@ -114,7 +114,7 @@ public:
         if (task_type_ == TASK_TYPE_ASYNC)
         {
             // FIXME: 异步任务不能正确执行
-            tw::parallel executor_async{THREAD_NUM};
+            // tw::parallel executor_async{THREAD_NUM};
             res->schedule(executor_async);
             return res->was_scheduled();
         }

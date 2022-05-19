@@ -24,7 +24,7 @@ int test_Task()
                    task_type);
 
     vector<int> thread_num = tasks.get_thread_info();
-    std::cout << "thread_num: " << thread_num[0] << std::endl;
+    std::cout << "threadpool_size: " << thread_num[0] << std::endl;
     return 0;
 }
 
@@ -50,32 +50,10 @@ int test_msg()
     return 0;
 }
 
-int test_tw()
-{
-    auto res = tw::make_task(tw::root, test_Task);
-    auto res2 = tw::make_task(tw::root, test_mqtt);
-    tw::parallel exec(4);
-    tw::sequential exec_serial;
-    tw::task_pool<int> pool{res};
-    // res->schedule(exec);
-    // res2->schedule(exec);
-    std::cout << "pool size: " << pool.size() << std::endl;
-    for (int i = 0; i < 2; i++)
-    {
-        auto task = pool.next_task(); // task may be null if the pool size is exhausted
-        if (task)
-        {
-            task->schedule_all(exec);
-        }
-    }
-    return 0;
-}
-
 int main()
 {
-    // test_Task();
+    test_Task();
     // test_mqtt();
     // test_msg();
-    test_tw();
     return 0;
 }

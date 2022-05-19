@@ -50,10 +50,38 @@ int test_msg()
     return 0;
 }
 
+int test_tw()
+{
+    // Twtasks twtasks;
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     twtasks.add_task([&i]()
+    //                      { std::cout << "task"
+    //                                  << i << "-" << std::this_thread::get_id() << std::endl; },
+    //                      1);
+    // }
+
+    for (int i = 0; i < 10; i++)
+    {
+
+        auto res = tw::make_task(
+            tw::root, [&i]()
+            { std::cout << "task"
+                        << i << "-" << std::this_thread::get_id() << std::endl;return 1; });
+
+        tw::task_pool<int> pool{res};
+        auto task = pool.next_task();
+        tw::parallel exec{4};
+        task->schedule(exec);
+    }
+    return 0;
+}
+
 int main()
 {
-    test_Task();
+    // test_Task();
     // test_mqtt();
     // test_msg();
+    test_tw();
     return 0;
 }

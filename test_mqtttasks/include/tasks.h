@@ -93,7 +93,7 @@ public:
     };
 };
 
-// #define TW
+#define TW
 #ifdef TW
 
 class Twtasks
@@ -103,7 +103,10 @@ class Twtasks
     tw::sequential executor_serial;
 
 public:
-    Twtasks(){};
+    Twtasks(){
+        // tw::parallel executor_async1{THREAD_NUM};
+        // executor_async = &executor_async1;
+    };
     ~Twtasks(){};
 
     // 添加任务

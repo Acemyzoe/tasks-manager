@@ -40,11 +40,20 @@ int test_mqtt()
     return 0;
 }
 
+#include "json/nlohmann/json.hpp"
+using json = nlohmann::json;
 int test_msg()
 {
+    string msg = "{\"name\":\"test\",\"age\":\"20\"}";
+    json j = json::parse(msg);
+    string msg2 = j.dump();
+
+    json j2 = {{"name", "demo"}, {"age", "22"}};
+    string msg3 = j2.dump();
+
     Msgqueue msgqueue;
-    msgqueue.put_msg(1, std::string("hello"));
-    msgqueue.put_msg(2, std::string("world"));
+    msgqueue.put_msg(1, msg2);
+    msgqueue.put_msg(2, msg3);
     std::cout << msgqueue.get_msg() << std::endl;
     std::cout << msgqueue.get_msg() << std::endl;
     return 0;
@@ -52,15 +61,6 @@ int test_msg()
 
 int test_tw()
 {
-    // Twtasks twtasks;
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     twtasks.add_task([&i]()
-    //                      { std::cout << "task"
-    //                                  << i << "-" << std::this_thread::get_id() << std::endl; },
-    //                      1);
-    // }
-
     for (int i = 0; i < 10; i++)
     {
 
@@ -81,7 +81,7 @@ int main()
 {
     // test_Task();
     // test_mqtt();
-    // test_msg();
-    test_tw();
+    test_msg();
+    // test_tw();
     return 0;
 }

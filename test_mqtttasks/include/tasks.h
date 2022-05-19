@@ -54,7 +54,6 @@ public:
             // t.join();
             auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
             res->schedule(executor_serial);
-            // return res->get();
         }
         else
         {
@@ -94,50 +93,52 @@ public:
     };
 };
 
+#define TW
 #ifdef TW
+
+class Twtasks
 {
-    class Twtasks
+    int task_type_;
+    // tw::parallel executor_async{THREAD_NUM};
+    tw::sequential executor_serial;
+
+public:
+    Twtasks(){};
+    ~Twtasks(){};
+
+    // 添加任务
+    template <class F, class... Args>
+    int add_task(F &&f, Args &&...args, int task_type_)
     {
-        int task_type_;
-        tw::parallel executor_async{THREAD_NUM};
-        tw::sequential executor_serial;
-
-    public:
-        Twtasks(){};
-        ~Twtasks(){};
-
-        // 添加任务
-        template <class F, class... Args>
-        int add_task(F &&f, Args &&...args, int task_type_)
+        auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
+        if (task_type_ == TASK_TYPE_ASYNC)
         {
-            auto res = tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
-            if (task_type_ == TASK_TYPE_ASYNC)
-            {
-                // FIXME: 异步任务不能正确执行
-                res->schedule(executor_async);
-                return res->was_scheduled();
-            }
-            else if (task_type_ == TASK_TYPE_SERIAL)
-            {
-                res->schedule(executor_serial);
-                return res->was_scheduled();
-            }
-            else
-            {
-                std::cout << "task_type error" << std::endl;
-                return -1;
-            }
-        };
-
-        // 获取线程池信息
-        vector<int> get_thread_info()
+            // FIXME: 异步任务不能正确执行
+            tw::parallel executor_async{THREAD_NUM};
+            res->schedule(executor_async);
+            return res->was_scheduled();
+        }
+        else if (task_type_ == TASK_TYPE_SERIAL)
         {
-            vector<int> thread_info;
-            thread_info.push_back(THREAD_NUM);
-            return thread_info;
-        };
+            res->schedule(executor_serial);
+            return res->was_scheduled();
+        }
+        else
+        {
+            std::cout << "task_type error" << std::endl;
+            return -1;
+        }
     };
-}
+
+    // 获取线程池信息
+    vector<int> get_thread_info()
+    {
+        vector<int> thread_info;
+        thread_info.push_back(THREAD_NUM);
+        return thread_info;
+    };
+};
+
 #endif
 
 #endif // TASKS_H

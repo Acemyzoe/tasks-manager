@@ -22,6 +22,7 @@ int test_tw()
     parallel exec{4};
     res1->schedule(exec);
     res2->schedule(exec);
+    res1->was_scheduled();
     return 0;
 }
 
@@ -57,8 +58,8 @@ int test_msg()
 
 int main()
 {
-    // test_mqtt();
-    // test_msg();
+    test_mqtt();
     test_tw();
+    test_msg();
     return 0;
 }

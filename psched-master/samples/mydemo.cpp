@@ -51,18 +51,20 @@ class mytask {
 public:
   mytask() {}
   ~mytask() {}
-  template <class F, class... Args> void add_task(F &&f, Args &&...args) {
+  template <class F, class... Args> auto add_task(F &&f, Args &&...args) {
     Task b(std::bind(std::forward<F>(f), std::forward<Args>(args)...));
-    scheduler.schedule<priority<0>>(b);
+    return b;
   }
+  auto runtask(Task &task) { return scheduler.schedule<priority<0>>(task); }
 };
 
 int main() {
   //   task(function);
   mytask t;
-  //   t.add_task(function);
-  for (int i = 0; i < 10; i++) {
-    t.add_task(function);
+  auto task = t.add_task(function);
+  for (int i = 0; i < 20; i++) {
+    t.runtask(task);
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
   return 0;
 }

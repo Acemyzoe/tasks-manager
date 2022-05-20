@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/basic_with_three_tasks.dir/examples/basic_with_three_tasks.cpp.o  -o basic_with_three_tasks  -lpthread 

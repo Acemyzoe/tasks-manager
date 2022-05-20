@@ -34,10 +34,6 @@ if(EXAMPLES)
     add_executable(test_tw examples/test_tw.cpp examples/mqtttasks.c)
     target_link_libraries(test_tw Threads::Threads mqttc)
 
-    add_executable(basic_with_three_tasks
-        examples/basic_with_three_tasks.cpp)
-    target_link_libraries(basic_with_three_tasks Threads::Threads)
-
     add_executable(test_threadpool examples/test_threadpool.cpp)
     target_link_libraries(test_threadpool Threads::Threads)
 

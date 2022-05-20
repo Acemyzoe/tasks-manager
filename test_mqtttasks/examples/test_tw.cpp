@@ -14,6 +14,13 @@
 using namespace std;
 namespace tw = transwarp;
 
+int functions()
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::cout << std::this_thread::get_id() << std::endl;
+    return 0;
+}
+
 // 线程池测试
 void test_mqtt_threadpool()
 {

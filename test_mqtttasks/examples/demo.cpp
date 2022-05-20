@@ -80,10 +80,8 @@ int test_tw()
             { std::cout << "task"
                         << i << "-" << std::this_thread::get_id() << std::endl;return 1; });
 
-        tw::task_pool<int> pool{res};
-        auto task = pool.next_task();
         tw::parallel exec{4};
-        task->schedule(exec);
+        res->schedule(exec);
     }
     return 0;
 }
@@ -92,7 +90,7 @@ int main()
 {
     // test_Task();
     // test_mqtt();
-    test_msg();
-    // test_tw();
+    // test_msg();
+    test_tw();
     return 0;
 }

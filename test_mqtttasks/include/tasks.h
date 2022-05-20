@@ -96,6 +96,14 @@ public:
 #define TW
 #ifdef TW
 
+using parallel = tw::parallel;
+using sequential = tw::sequential;
+template <class F, class... Args>
+auto add_task(F &&f, Args &&...args)
+{
+    return tw::make_task(tw::root, std::forward<F>(f), std::forward<Args>(args)...);
+}
+
 class Twtasks
 {
     int task_type_;

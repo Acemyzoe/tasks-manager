@@ -3,31 +3,6 @@
 #include <time.h>
 #include "mqtttasks.h"
 
-int test_Task()
-{
-    Tasks tasks;
-    int task_type = 0;
-    tasks.add_task([]()
-                   { 
-                    //    std::this_thread::sleep_for(std::chrono::seconds(1));
-                   std::cout<< "task1"<< "-" << std::this_thread::get_id() << std::endl; },
-                   task_type);
-    tasks.add_task([]()
-                   { 
-                    //    std::this_thread::sleep_for(std::chrono::seconds(1));
-                   std::cout << "task2" << "-" << std::this_thread::get_id() << std::endl; },
-                   task_type);
-    tasks.add_task([]()
-                   { 
-                    //    std::this_thread::sleep_for(std::chrono::seconds(1));
-                     std::cout << "task3" << "-" << std::this_thread::get_id() << std::endl; },
-                   task_type);
-
-    vector<int> thread_num = tasks.get_thread_info();
-    std::cout << "threadpool_size: " << thread_num[0] << std::endl;
-    return 0;
-}
-
 int test_mqtt()
 {
     Tasks tasks;
@@ -36,7 +11,17 @@ int test_mqtt()
     tasks.add_task(pub, task_type);
 
     vector<int> thread_num = tasks.get_thread_info();
-    std::cout << "thread_num: " << thread_num[0] << std::endl;
+    std::cout << "threadpool_size: " << thread_num[0] << std::endl;
+    return 0;
+}
+
+int test_tw()
+{
+    auto res1 = add_task(sub);
+    auto res2 = add_task(pub);
+    parallel exec{4};
+    res1->schedule(exec);
+    res2->schedule(exec);
     return 0;
 }
 
@@ -70,25 +55,8 @@ int test_msg()
     return 0;
 }
 
-int test_tw()
-{
-    for (int i = 0; i < 10; i++)
-    {
-
-        auto res = tw::make_task(
-            tw::root, [&i]()
-            { std::cout << "task"
-                        << i << "-" << std::this_thread::get_id() << std::endl;return 1; });
-
-        tw::parallel exec{4};
-        res->schedule(exec);
-    }
-    return 0;
-}
-
 int main()
 {
-    // test_Task();
     // test_mqtt();
     // test_msg();
     test_tw();

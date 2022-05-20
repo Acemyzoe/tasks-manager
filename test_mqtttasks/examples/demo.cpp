@@ -45,15 +45,26 @@ using json = nlohmann::json;
 int test_msg()
 {
     string msg = "{\"name\":\"test\",\"age\":\"20\"}";
-    json j = json::parse(msg);
-    string msg2 = j.dump();
+    string msg2 = R"({"happy": true, "pi": 3.141})";
 
-    json j2 = {{"name", "demo"}, {"age", "22"}};
-    string msg3 = j2.dump();
+    json j = json::parse(msg2);
+    string msg3 = j.dump();
+
+    json j2 = {
+        {"pi", 3.141},
+        {"happy", true},
+        {"name", "Niels"},
+        {"nothing", nullptr},
+        {"answer", {{"everything", 42}}},
+        {"list", {1, 0, 2}},
+        {"object", {{"currency", "USD"}, {"value", 42.99}}}};
+    string msg4 = j2.dump();
 
     Msgqueue msgqueue;
     msgqueue.put_msg(1, msg2);
     msgqueue.put_msg(2, msg3);
+    msgqueue.put_msg(3, msg4);
+    std::cout << msgqueue.get_msg() << std::endl;
     std::cout << msgqueue.get_msg() << std::endl;
     std::cout << msgqueue.get_msg() << std::endl;
     return 0;

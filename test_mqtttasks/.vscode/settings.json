@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "mqtttasks.h": "c"
+        "mqtttasks.h": "c",
+        "typeinfo": "cpp",
+        "iostream": "cpp"
     }
 }
